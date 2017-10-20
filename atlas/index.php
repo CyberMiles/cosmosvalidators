@@ -10,7 +10,7 @@
 
   if (!empty($to)) {
     // check account key format
-    if(ctype_alnum($to) && strlen($to)==40){
+    if(ctype_xdigit($to) && strlen($to)==40){
       // OK
     } else {
       $errormsg = "The account address is in the wrong format";
