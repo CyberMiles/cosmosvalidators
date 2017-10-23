@@ -34,7 +34,7 @@
 
     if ($captcha_success->success==false) {
       $errormsg = "Failed human test";
-    } 
+    }
 
     // No error from above
     if (empty($errormsg)) {
@@ -51,14 +51,21 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
   <body>
   <div class="container">
-    <h1>Bond myself to become a validator on the atlas test network</h1>
+    <a href="https://cosmos.network/validators">
+      <img class="logo" src="cosmos-validator-small.png" alt="Cosmos Validator logo">
+    </a>
+    <h1>Cosmos Testnet Validator Program</h1>
+
+    <h2>How to Get Fermions for the Gaia Testnet and Become A Testnet Validator</h2>
+    <!-- <h2>Bond myself to become a validator on the Gaia test network</h2> -->
 
     <p>Refer to <a href="https://github.com/cosmos/gaia/blob/master/README.md">this page</a> to build your <code>gaia</code> and <code>gaiacli</code> binaries, and how to run and sync your gaia node to the atlas testnet blockchain.</p>
 
@@ -69,8 +76,10 @@ $ gaiacli keys list
 All keys:
 mytest          F75D0...2
     </pre>
+</div>
+    <div class="container">
+    <h2>Requesting Fermions</h2>
 
-    <hr/>
     <form method=POST>
       <div class="form-group">
         <label for="to">Account</label>
@@ -99,20 +108,21 @@ mytest          F75D0...2
 <?php
   }
 ?>
-    <hr/>
+</div>
+    <div class="container">
+      <h2>Becoming a Testnet Validator</h2>
 
-    <p>Upon success, Use the following command to check your account balance.</p>
+      <p>Upon success, use the following command to check your account balance.</p>
 
-    <pre>$ gaiacli query account F75D0...2</pre>
+      <pre>$ gaiacli query account F75D0...2</pre>
 
-    <p>Then, you can bond your fermions and become a validator. The <code>$PUBKEY</code> refers to the public key of your node. It is in the <code>$HOME/.atlas/priv_validator.json</code> file.</p>
+      <p>Then, you can bond your fermions and become a validator. The <code>$PUBKEY</code> refers to the public key of your node. It is in the <code>$HOME/.atlas/priv_validator.json</code> file.</p>
 
-    <pre>$ gaiacli tx bond --amount 10fermion --name mytest --pubkey $PUBKEY</pre>
+      <pre>$ gaiacli tx bond --amount 10fermion --name mytest --pubkey $PUBKEY</pre>
 
-    <p class="lead text-center">Happy validating!</p>
+      <p class="lead text-center">Happy validating!</p>
+    </div>
 
-    <hr/>
-    <p class="text-center">This page is developed by your fellow validator <a href="http://michaelyuan.com/">Michael Yuan</a>.</p>
-  </div>
+    <p class="text-center author">This page is developed by your fellow validator <a href="http://michaelyuan.com/">Michael&nbsp;Yuan</a>.</p>
   </body>
 </html>
