@@ -104,3 +104,7 @@ pre, code {
   font-weight: 300;
   overflow: auto;
 }
+
+.error {
+  color: red;
+}

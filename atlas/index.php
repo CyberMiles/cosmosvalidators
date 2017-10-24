@@ -48,6 +48,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Cosmos Testnet Validator Program</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -94,14 +95,14 @@ mytest          F75D0...2
 <?php
   if (!empty($errormsg)) {
 ?>
-<p>Error: <code><?= $errormsg ?></code></p>
+<p class="error">Error: <code><?= $errormsg ?></code></p>
 <?php
   }
 ?>
 <?php
   if (!empty($res)) {
 ?>
-<p>Testnet response follows. If you see <code>deliver_tx</code> <code>"code": 0</code>, that indicates success.</p>
+<p><b>Testnet response follows.</b> If you see <code>deliver_tx</code> <code>"code": 0</code>, that indicates success.</p>
 <pre>
 <?= $res ?>
 </pre>
@@ -116,13 +117,13 @@ mytest          F75D0...2
 
       <pre>$ gaiacli query account F75D0...2</pre>
 
-      <p>Then, you can bond your fermions and become a validator. The <code>$PUBKEY</code> refers to the public key of your node. It is in the <code>$HOME/.atlas/priv_validator.json</code> file.</p>
+      <p>Then, you can bond your fermions and become a validator. The <code>$PUBKEY</code> refers to the public key of your node. It is in the <code>$GAIANET/priv_validator.json</code> file.</p>
 
       <pre>$ gaiacli tx bond --amount 10fermion --name mytest --pubkey $PUBKEY</pre>
 
       <p class="lead text-center">Happy validating!</p>
     </div>
 
-    <p class="text-center author">This page is developed by your fellow validator <a href="http://michaelyuan.com/">Michael&nbsp;Yuan</a>.</p>
+    <p class="text-center author">This page is built by your fellow validator <a href="http://michaelyuan.com/">Michael Yuan</a> from <a href="https://cm.5miles.com/">CyberMiles</a>.</p>
   </body>
 </html>
