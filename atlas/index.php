@@ -54,19 +54,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+  $.ajax({
+    url: "http://atlas-node0.testnets.interblock.io:46657/status",
+    dataType: 'text',
+    error: function(){
+      $('#status').css('color', 'red');
+      $('#status').html("Down (Please check back later)");
+    },
+    success: function(data){
+      json_x = $.parseJSON(data);
+      if (json_x.error) {
+        $('#status').css('color', 'red');
+        $('#status').html("Error: " + json_x.error);
+      }
+      $('#status').css('color', 'green');
+      $('#status').html("Last block: " + json_x.result.latest_block_height);
+    },
+    timeout: 5000
+  });
+});
+    </script>
   </head>
   <body>
   <div class="container">
     <a href="https://cosmos.network/validators">
       <img class="logo" src="cosmos-validator-small.png" alt="Cosmos Validator logo">
     </a>
+    <p class="lead text-center">Blockchain Status: <span id="status"></span></p>
     <h1>Cosmos Testnet Validator Program</h1>
 
     <h2>How to Get Fermions for the Gaia Testnet and Become A Testnet Validator</h2>
-    <!-- <h2>Bond myself to become a validator on the Gaia test network</h2> -->
 
     <p>Refer to <a href="https://github.com/cosmos/gaia/blob/master/README.md">this page</a> to build your <code>gaia</code> and <code>gaiacli</code> binaries, and how to run and sync your gaia node to the atlas testnet blockchain.</p>
 
