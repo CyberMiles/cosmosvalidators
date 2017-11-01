@@ -63,7 +63,7 @@ $(document).ready(function(){
     dataType: 'text',
     error: function(){
       $('#status').css('color', 'red');
-      $('#status').html("Down (Please check back later)");
+      $('#status').html("Down (please check back later)");
     },
     success: function(data){
       json_x = $.parseJSON(data);
@@ -87,11 +87,11 @@ $(document).ready(function(){
     <p class="lead text-center">Blockchain Status: <span id="status"></span></p>
     <h1>Cosmos Testnet Validator Program</h1>
 
-    <h2>How to Get Fermions for the Gaia Testnet and Become A Testnet Validator</h2>
+    <h2>How to Get Fermions for the Atlas Testnet and Become a Testnet Validator</h2>
 
-    <p>Refer to <a href="https://github.com/cosmos/gaia/blob/master/README.md">this page</a> to build your <code>gaia</code> and <code>gaiacli</code> binaries, and how to run and sync your gaia node to the atlas testnet blockchain.</p>
+    <p>First, visit <a href="https://github.com/cosmos/gaia/blob/master/README.md">this page</a> to build your <code>gaia</code> and <code>gaiacli</code> binaries. This is where you can learn how to run and sync your Gaia node to the Atlas testnet.</p>
 
-    <p>Now, you should have already created some accounts to receive fermion tokens from the atlas testnet.</p>
+    <p>By this point you should have created an account. This account will enable you to receive fermions for the Atlas testnet.</p>
 
     <pre>
 $ gaiacli keys list
@@ -134,11 +134,13 @@ mytest          F75D0...2
     <div class="container">
       <h2>Becoming a Testnet Validator</h2>
 
-      <p>Upon success, use the following command to check your account balance.</p>
+      <p>If you have successfully received fermions you can use the following command to check your account balance.</p>
 
       <pre>$ gaiacli query account F75D0...2</pre>
 
-      <p>Then, you can bond your fermions and become a validator. The <code>$PUBKEY</code> refers to the public key of your node. It is in the <code>$GAIANET/priv_validator.json</code> file.</p>
+      <p>If you have an account balance you can now bond your fermions and become a validator.</p>
+
+      <p>The <code>$PUBKEY</code> refers to the public key for your node. You can find it in the <code>$GAIANET/priv_validator.json</code> file.</p>
 
       <pre>$ gaiacli tx bond --amount 10fermion --name mytest --pubkey $PUBKEY</pre>
 
