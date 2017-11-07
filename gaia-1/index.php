@@ -91,7 +91,7 @@ $(document).ready(function(){
     
     <p>You need to have <a href="https://golang.org/doc/install">GO</a>, <a href="https://gcc.gnu.org/install/">GCC</a>, and <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed on your machine.</p>
 
-    <p>You should not have <code>$GOROOT</code> and <code>$GOPATH</code> setup.</p>
+    <p>You should now have <code>$GOROOT</code> and <code>$GOPATH</code> setup.</p>
 
     <h2>Build</h2>
 
@@ -118,10 +118,10 @@ gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:
     
     <p><i>Troubleshooting</i></p>
 
-    <p>If you see errors, try the following re-run the make all.</p>
+    <p>If you see errors, try the following, and then re-run <code>make all</code>.</p>
 
     <ul>
-      <li>Try running a git pull in the <code>$GOPATH/src/github.com/cosmos/gaia</code> directory.</li>
+      <li>Try running a <code>git pull</code> in the <code>$GOPATH/src/github.com/cosmos/gaia</code> directory.</li>
       <li>Remove the <code>.glide</code> folder in the <code>$HOME</code> directory.</li>
       <li>Install <a href="https://glide.sh/">gilde</a> by hand.</li>
       <li>Delete the <code>$HOME/.cosmos-gaia-cli</code> directory before init the <code>gaiacli</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-cli/keys</code> directory.</li>
@@ -129,7 +129,7 @@ gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:
     
     <h2>Create your own wallet</h2>
 
-    <p>We use the gaiacli utility to create public / private key pairs for the wallet.</p>
+    <p>We use the <code>gaiacli</code> utility to create public / private key pairs for the wallet.</p>
 
 <pre>
 $ ./gaiacli keys new MyAccount
