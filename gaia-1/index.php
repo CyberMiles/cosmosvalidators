@@ -89,9 +89,9 @@ $(document).ready(function(){
 
     <h2>How to Get Fermions for the Atlas Testnet and Become a Testnet Validator</h2>
 
-    <p>First, visit <a href="https://github.com/CyberMiles/cosmosvalidators/blob/master/gaia-1/node.md">this page</a> to build your <code>gaia</code> and <code>gaiacli</code> binaries. This is where you can learn how to run and sync your Gaia node to the Atlas testnet.</p>
+    <p>First, visit <a href="https://github.com/CyberMiles/cosmosvalidators/blob/master/gaia-1/node.md">this page</a> to build your <code>gaia</code> and <code>gaiacli</code> binaries. This is where you can learn how to run and sync your Gaia node to the <code>gaia-1</code> testnet.</p>
 
-    <p>By this point you should have created an account. This account will enable you to receive fermions for the Atlas testnet.</p>
+    <p>By this point you should have created an account. This account will enable you to receive fermions for the <code>gaia-1</code> testnet.</p>
 
     <pre>
 $ gaiacli keys list
