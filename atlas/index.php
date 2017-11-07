@@ -59,7 +59,7 @@
     <script>
 $(document).ready(function(){
   $.ajax({
-    url: "http://atlas-node0.testnets.interblock.io:46657/status",
+    url: "http://gaia-1-node0.testnets.interblock.io:46657/status",
     dataType: 'text',
     error: function(){
       $('#status').css('color', 'red');
