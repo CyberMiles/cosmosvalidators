@@ -89,9 +89,9 @@ $(document).ready(function(){
     
     <h2>Prerequisite</h2>
     
-    <p>You need to have GO, GCC, and git installed on your machine.</p>
+    <p>You need to have <a href="https://golang.org/doc/install">GO</a>, <a href="https://gcc.gnu.org/install/">GCC</a>, and <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed on your machine.</p>
 
-    <p>You should not have $GOROOT and $GOPATH setup.</p>
+    <p>You should not have <code>$GOROOT</code> and <code>$GOPATH</code> setup.</p>
 
     <h2>Build</h2>
 
@@ -101,7 +101,7 @@ $ cd $GOPATH/src/github.com/cosmos/gaia
 $ make all
 </pre>
     
-    <p>Upon success, the gaia and gaiacli binaries will be installed in the $GOPATH/bin directory.</p>
+    <p>Upon success, the <code>gaia</code> and <code>gaiacli</code> binaries will be installed in the <code>$GOPATH/bin</code> directory.</p>
 
 <pre>
 $ gaia version
@@ -110,7 +110,7 @@ $ gaiacli version
 v0.3.0
 </pre>
     
-    <p>Next initialize your gaiacli utility to the gaia-1 test network.</p>
+    <p>Next initialize your <code>gaiacli</code> utility to the <code>gaia-1</code> test network.</p>
 
 <pre>
 gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:46657
@@ -121,10 +121,10 @@ gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:
     <p>If you see errors, try the following re-run the make all.</p>
 
     <ul>
-      <li>Try running a git pull in the $GOPATH/src/github.com/cosmos/gaia directory.</li>
-      <li>Remove the .glide folder in the user's home directory.</li>
-      <li>Install gilde by hand.</li>
-      <li>Delete the $HOME/.cosmos-gaia-cli directory before init the gaiacli. You can also copy the keys files from your past setup into the $HOME/.cosmos-gaia-cli/keys directory.</li>
+      <li>Try running a git pull in the <code>$GOPATH/src/github.com/cosmos/gaia</code> directory.</li>
+      <li>Remove the <code>.glide</code> folder in the <code>$HOME</code> directory.</li>
+      <li>Install <a href="https://glide.sh/">gilde</a> by hand.</li>
+      <li>Delete the <code>$HOME/.cosmos-gaia-cli</code> directory before init the <code>gaiacli</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-cli/keys</code> directory.</li>
     </ul>
     
     <h2>Create your own wallet</h2>
@@ -140,13 +140,13 @@ MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
     
     <h2>Get some tokens</h2>
 
-    <p>Please use the form below to send some tokens to your newly created wallet (called fermions on the gaia-1 test network).</p>
+    <p>Please use the form below to send some tokens to your newly created wallet (called fermions on the <code>gaia-1</code> test network).</p>
     
     <form method=POST>
       <div class="form-group">
         <label for="to">Account</label>
         <input type="text" class="form-control" name="to" id="to">
-        <p class="help-block">It is the F75D0...2 from the above example</p>
+        <p class="help-block">It is the ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789 from the above example</p>
       </div>
       <div class="g-recaptcha" data-sitekey="<?= $recaptcha_key ?>"></div>
       <div class="control-group" style="margin-top:10px;">
@@ -171,7 +171,7 @@ MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
   }
 ?>
     
-    <p>You should now be able to see them in your account via gaiacli.</p>
+    <p>You should now be able to see them in your account via <code>gaiacli</code>.</p>
     
 <pre>
 $ gaiacli query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
@@ -191,7 +191,7 @@ $ gaiacli query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
     
     <h2>Run your own node</h2>
 
-    <p>Check out the testnets configurations from github to your local directory, and point the $GAIANET environment variable to the gaia-1 network configuration files.</p>
+    <p>Check out the testnets configurations from github to your local directory, and point the <code>$GAIANET</code> environment variable to the <code>gaia-1</code> network configuration files.</p>
 
 <pre>
 $ git clone https://github.com/tendermint/testnets $HOME/testnets
@@ -199,7 +199,7 @@ $ GAIANET=$HOME/testnets/gaia/gaia-1
 $ cd $GAIANET
 </pre>
 
-    <p>Now you can run your own node. It will take some time to sync up. You can check the current status (including the latest block height) of the gaia-1 network here.</p>
+    <p>Now you can run your own node. It will take some time to sync up. You can check the current status (including the latest block height) of the <code>gaia-1</code> network <a href="http://gaia-1-node0.testnets.interblock.io:46657/status">here</a>.</p>
 
 <pre>
 $ gaia start --home=$GAIANET
@@ -210,24 +210,24 @@ I[11-07|18:07:44.857] Committed state                              module=state 
 
     <h2>Bond your node as a validator</h2>
 
-    <p>To bond your node as a validator of the gaia-1 network, you need two pieces of information.</p>
+    <p>To bond your node as a validator of the <code>gaia-1</code> network, you need two pieces of information.</p>
 
     <ul>
-      <li>The wallet that provides the tokens to bond. We already have it when we setup the wallet. It is MyAccount in our case.</li>
-      <li>The the public key of your node. This can be found in the $GAIANET/priv_validator.json file. Look for pub_key/data JSON field.</li>
+      <li>The wallet that provides the tokens to bond. We already have it when we setup the wallet. It is <code>MyAccount</code> in our case.</li>
+      <li>The the public key of your node. This can be found in the <code>$GAIANET/priv_validator.json</code> file. Look for <code>pub_key/data</code> JSON field.</li>
     </ul>
     
 <pre>
 $ gaiacli tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_OF_MY_NODE
 </pre>
     
-    <p>Now, you should be able to see your node (indentified by its public key) in the network validators end point.</p>
+    <p>Now, you should be able to see your node (indentified by its public key) in the network <a href="http://gaia-1-node0.testnets.interblock.io:46657/validators">validators</a> end point.</p>
   </div>
     
   <div class="container">
     <p class="lead text-center">Happy validating!</p>
+    <p class="text-center author">This page is built by your fellow validator <a href="http://michaelyuan.com/">Michael Yuan</a> from <a href="https://cm.5miles.com/">CyberMiles</a>.</p>
   </div>
-
-  <p class="text-center author">This page is built by your fellow validator <a href="http://michaelyuan.com/">Michael Yuan</a> from <a href="https://cm.5miles.com/">CyberMiles</a>.</p>
+  
   </body>
 </html>
