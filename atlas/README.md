@@ -1,13 +1,13 @@
-# Web utilities for the Atlas testnet
+# Web utilities for the gaia-1 testnet
 
-## Set up Gaia CLI for Atlas
+## Set up Gaia CLI for gaia-1
 
 First backup your `.cosmos-gaia-cli` directory if there is one. You want to keep your `.cosmos-gaia-cli/keys` where your existing account keys are stored.
 
 Initialize your `gaiacli` utility to the testnet.
 
 ```
-gaiacli init --chain-id=atlas --node=tcp://104.131.86.166:46657
+gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:46657
 ```
 
 You can now copy back your old keys into `.cosmos-gaia-cli/keys` or create new ones. Some of those accounts should have a lot of coins to give out.
