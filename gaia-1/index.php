@@ -44,6 +44,25 @@
       $res = shell_exec( $cmd );
     }
   }
+
+  // Load the network status
+  $c = curl_init();
+  curl_setopt($c, CURLOPT_URL, "http://gaia-1-node0.testnets.interblock.io:46657/status");
+  curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+  $status_data = curl_exec($c);
+  curl_close($c);
+
+  $status_error = "";
+  if (curl_error($c)) {
+    $status_error = "Down (please check back later)";
+  } else {
+    $status_json = json_decode ($status_data, TRUE);
+    if ($status_json['error']) {
+      $status_error = $status_json['error'];
+    } else {
+      $status_latest_block_height = $status_json['result']['latest_block_height'];
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,24 +77,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
-  $.ajax({
-    url: "http://gaia-1-node0.testnets.interblock.io:46657/status",
-    dataType: 'text',
-    error: function(){
-      $('#status').css('color', 'red');
-      $('#status').html("Down (please check back later)");
-    },
-    success: function(data){
-      json_x = $.parseJSON(data);
-      if (json_x.error) {
+  <?php
+    if ($status_error) {
+  ?>
         $('#status').css('color', 'red');
-        $('#status').html("Error: " + json_x.error);
-      }
-      $('#status').css('color', 'green');
-      $('#status').html("Last block: " + json_x.result.latest_block_height);
-    },
-    timeout: 5000
-  });
+        $('#status').html("Error: " + <?= $status_error ?>);
+  <?php
+    } else {
+  ?>
+        $('#status').css('color', 'green');
+        $('#status').html("Last block: " + <?= $status_latest_block_height ?>);
+  <?php
+    }
+  ?>
 });
     </script>
   </head>
