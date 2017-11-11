@@ -87,7 +87,7 @@ $(document).ready(function(){
     <p class="lead text-center">Blockchain Status: <span id="status"></span></p>
     <h1>Cosmos Testnet Validator Program</h1>
     
-    <h2>Prerequisite</h2>
+    <h2>Prerequisites</h2>
     
     <p>You need to have <a href="https://golang.org/doc/install">GO</a>, <a href="https://gcc.gnu.org/install/">GCC</a>, and <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed on your machine.</p>
 
@@ -195,7 +195,7 @@ $ gaiacli query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 
 <pre>
 $ git clone https://github.com/tendermint/testnets $HOME/testnets
-$ GAIANET=$HOME/testnets/gaia/gaia-1
+$ GAIANET=$HOME/testnets/gaia-1/gaia
 $ cd $GAIANET
 </pre>
 
@@ -222,6 +222,15 @@ $ gaiacli tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_OF_MY
 </pre>
     
     <p>Now, you should be able to see your node (indentified by its public key) in the network <a href="http://gaia-1-node0.testnets.interblock.io:46657/validators">validators</a> end point.</p>
+
+    <h2>Automated scripts</h2>
+
+    <p>Once you understand how the process works, you can use the following community maintained scripts to automate the deployment of your testnet node so that you do not have to type in everything every time!</p>
+
+    <ul>
+      <li>User <a href="https://github.com/mdyring">mdyring</a> created a script to <a href="https://gist.github.com/mdyring/47545b1e03b6a4eb3b29dfa599e50151">setup a gaia-1 full node on EC2</a>. You can pass in <code>user-data</code> for automation.</li>
+    </ul>
+
   </div>
     
   <div class="container">
