@@ -4,7 +4,18 @@ html {
 }
 
 body {
+  margin: 0;
   -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0;
+}
+
+nav a {
+  padding-right: 10px;
 }
 
 h1 {
@@ -13,11 +24,20 @@ h1 {
 }
 
 h2 {
-  font-weight: 400;
+  margin-top: 3rem;
+  font-weight: 500;
+}
+
+h3 {
+  margin-top: 2rem;
 }
 
 a {
   color: #007ae6;
+}
+
+p {
+  line-height: 24px;
 }
 
 p li {
@@ -34,6 +54,7 @@ p li {
 
 li{
   margin: 10px 0;
+  line-height: 24px;
 }
 
 label {
@@ -70,6 +91,10 @@ button {
   cursor: pointer;
 }
 
+.links {
+  padding-top: 20px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -84,14 +109,20 @@ button {
 }
 
 .container {
-  padding: 25px 0 50px;
+  padding: 0 5px 50px;
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #ccc;
 }
 
+.footer {
+  padding: 25px 5px 50px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .logo {
-  max-width: 150px;
+  max-width: 120px;
 }
 
 pre {
@@ -99,7 +130,7 @@ pre {
 }
 
 code {
-  padding: 4px;
+  padding: 2px;
 }
 
 pre, code {
@@ -111,4 +142,10 @@ pre, code {
 
 .error {
   color: red;
+}
+
+.box {
+  border: 1px solid #ddd;
+  background: rgba(255, 221, 0, 0.2);
+  padding: 10px;
 }

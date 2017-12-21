@@ -80,12 +80,14 @@ $(document).ready(function(){
   <?php
     if ($status_error) {
   ?>
-        $('#status').css('color', 'red');
+        $('#status-box').css('background', 'rgba(216, 0, 0, 0.1)');
+        $('#status').css('color', 'rgb(193, 0, 8)');
         $('#status').html("Error: " + <?= $status_error ?>);
   <?php
     } else {
   ?>
-        $('#status').css('color', 'green');
+        $('#status-box').css('background', 'rgba(30, 186, 0, 0.1)');
+        $('#status').css('color', 'rgb(19, 122, 0)');
         $('#status').html("Last block: " + <?= $status_latest_block_height ?>);
   <?php
     }
@@ -95,14 +97,22 @@ $(document).ready(function(){
   </head>
   <body>
   <div class="container">
-    <a href="https://cosmos.network/validators">
-      <img class="logo" src="cosmos-validator-small.png" alt="Cosmos Validator logo">
-    </a>
-    <p class="lead text-center">Blockchain Status: <span id="status"></span></p>
+    <nav>
+      <a href="https://cosmos.network/validators">
+        <img class="logo" src="cosmos-validator-small.png" alt="Cosmos Validator logo">
+      </a>
+      <div class="links">
+        <a href="https://cosmos.network/validators/faq" target="_blank">FAQ</a>
+        <a href="https://github.com/cosmos/gaia" target="_blank">GitHub</a>
+      </div>
+    </nav>
     <h1>Cosmos Testnet Validator Program</h1>
-    
+    <div class="box" id="status-box">
+      <p class="lead text-center">Blockchain Status: <span id="status"></span></p>
+    </div>
+
     <h2>Prerequisites</h2>
-    
+
     <p>You need to have <a href="https://golang.org/doc/install">GO</a>, <a href="https://gcc.gnu.org/install/">GCC</a>, and <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed on your machine.</p>
 
     <p>You should now have <code>$GOROOT</code> and <code>$GOPATH</code> setup.</p>
@@ -110,11 +120,11 @@ $(document).ready(function(){
     <h2>Build</h2>
 
 <pre>
-$ go get github.com/cosmos/gaia 
+$ go get github.com/cosmos/gaia
 $ cd $GOPATH/src/github.com/cosmos/gaia
 $ make all
 </pre>
-    
+
     <p>Upon success, the <code>gaia</code> and <code>gaiacli</code> binaries will be installed in the <code>$GOPATH/bin</code> directory.</p>
 
 <pre>
@@ -123,14 +133,14 @@ v0.3.0
 $ gaiacli version
 v0.3.0
 </pre>
-    
+
     <p>Next initialize your <code>gaiacli</code> utility to the <code>gaia-1</code> test network.</p>
 
 <pre>
 gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:46657
 </pre>
-    
-    <p><i>Troubleshooting</i></p>
+
+    <h3><i>Troubleshooting</i></h3>
 
     <p>If you see errors, try the following, and then re-run <code>make all</code>.</p>
 
@@ -140,7 +150,7 @@ gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:
       <li>Install <a href="https://glide.sh/">gilde</a> by hand.</li>
       <li>Delete the <code>$HOME/.cosmos-gaia-cli</code> directory before init the <code>gaiacli</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-cli/keys</code> directory.</li>
     </ul>
-    
+
     <h2>Create your own wallet</h2>
 
     <p>We use the <code>gaiacli</code> utility to create public / private key pairs for the wallet.</p>
@@ -151,11 +161,13 @@ Enter a passphrase:MyPassword
 Repeat the passphrase:MyPassword
 MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 </pre>
-    
-    <h2>Get some tokens</h2>
 
+    <h2>Get some tokens</h2>
+    <div class="box">
+      <p class="text-center">Currently this faucet only works with the gaia-1 testnet. Your balance will not update if you are running a different version of the testnet.</p>
+    </div>
     <p>Please use the form below to send some tokens to your newly created wallet (called fermions on the <code>gaia-1</code> test network).</p>
-    
+
     <form method=POST>
       <div class="form-group">
         <label for="to">Account</label>
@@ -184,9 +196,9 @@ MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 <?php
   }
 ?>
-    
+
     <p>You should now be able to see them in your account via <code>gaiacli</code>.</p>
-    
+
 <pre>
 $ gaiacli query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 {
@@ -202,7 +214,7 @@ $ gaiacli query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
   }
 }
 </pre>
-    
+
     <h2>Run your own node</h2>
 
     <p>Check out the testnets configurations from github to your local directory, and point the <code>$GAIANET</code> environment variable to the <code>gaia-1</code> network configuration files.</p>
@@ -230,11 +242,11 @@ I[11-07|18:07:44.857] Committed state                              module=state 
       <li>The wallet that provides the tokens to bond. We already have it when we setup the wallet. It is <code>MyAccount</code> in our case.</li>
       <li>The the public key of your node. This can be found in the <code>$GAIANET/priv_validator.json</code> file. Look for <code>pub_key/data</code> JSON field.</li>
     </ul>
-    
+
 <pre>
 $ gaiacli tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_OF_MY_NODE
 </pre>
-    
+
     <p>Now, you should be able to see your node (indentified by its public key) in the network <a href="http://gaia-1-node0.testnets.interblock.io:46657/validators">validators</a> end point.</p>
 
     <h2>Automated scripts</h2>
@@ -246,11 +258,11 @@ $ gaiacli tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_OF_MY
     </ul>
 
   </div>
-    
-  <div class="container">
+
+  <div class="footer">
     <p class="lead text-center">Happy validating!</p>
     <p class="text-center author">This page is built by your fellow validator <a href="http://michaelyuan.com/">Michael Yuan</a> from <a href="https://cm.5miles.com/">CyberMiles</a>.</p>
   </div>
-  
+
   </body>
 </html>
