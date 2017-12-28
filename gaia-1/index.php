@@ -44,25 +44,6 @@
       $res = shell_exec( $cmd );
     }
   }
-
-  // Load the network status
-  $c = curl_init();
-  curl_setopt($c, CURLOPT_URL, "http://gaia-1-node0.testnets.interblock.io:46657/status");
-  curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-  $status_data = curl_exec($c);
-  curl_close($c);
-
-  $status_error = "";
-  if (curl_error($c)) {
-    $status_error = "Down (please check back later)";
-  } else {
-    $status_json = json_decode ($status_data, TRUE);
-    if ($status_json['error']) {
-      $status_error = $status_json['error'];
-    } else {
-      $status_latest_block_height = $status_json['result']['latest_block_height'];
-    }
-  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,21 +58,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
-  <?php
-    if ($status_error) {
-  ?>
+    $.ajax({
+    url: "https://gaia-1-node0.testnets.interblock.io/status",
+    dataType: 'text',
+    error: function(){
+      $('#status-box').css('background', 'rgba(216, 0, 0, 0.1)');
+      $('#status').css('color', 'rgb(193, 0, 8)');
+      $('#status').html("Down (please check back later)");
+    },
+    success: function(data){
+      json_x = $.parseJSON(data);
+      if (json_x.error) {
         $('#status-box').css('background', 'rgba(216, 0, 0, 0.1)');
         $('#status').css('color', 'rgb(193, 0, 8)');
-        $('#status').html("Error: " + <?= $status_error ?>);
-  <?php
-    } else {
-  ?>
-        $('#status-box').css('background', 'rgba(30, 186, 0, 0.1)');
-        $('#status').css('color', 'rgb(19, 122, 0)');
-        $('#status').html("Last block: " + <?= $status_latest_block_height ?>);
-  <?php
-    }
-  ?>
+        $('#status').html("Error: " + json_x.error);
+      }
+      $('#status-box').css('background', 'rgba(30, 186, 0, 0.1)');
+      $('#status').css('color', 'rgb(19, 122, 0)');
+      $('#status').html("Last block: " + json_x.result.latest_block_height);
+    },
+    timeout: 5000
+  });
 });
     </script>
   </head>
@@ -108,7 +95,7 @@ $(document).ready(function(){
     </nav>
     <h1>Cosmos Testnet Validator Program</h1>
     <div class="box" id="status-box">
-      <p class="lead text-center">Blockchain Status: <span id="status"></span></p>
+      <p class="lead text-center">Blockchain Status: <span id="status">Fetching data ...</span></p>
     </div>
 
     <h2>Prerequisites</h2>
