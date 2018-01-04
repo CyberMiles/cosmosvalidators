@@ -59,7 +59,7 @@
     <script>
 $(document).ready(function(){
     $.ajax({
-    url: "https://gaia-1-node0.testnets.interblock.io/status",
+    url: "https://gaia-2-node0.testnets.interblock.io/status",
     dataType: 'text',
     error: function(){
       $('#status-box').css('background', 'rgba(216, 0, 0, 0.1)');
