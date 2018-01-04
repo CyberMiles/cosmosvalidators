@@ -1,26 +1,26 @@
-# Web utilities for the gaia-1 testnet
+# Web utilities for the gaia-2 testnet
 
-## Set up Gaia CLI for gaia-1
+## Set up Gaia CLI for gaia-2
 
 First backup your `.cosmos-gaia-cli` directory if there is one. You want to keep your `.cosmos-gaia-cli/keys` where your existing account keys are stored.
 
-Initialize your `gaiacli` utility to the testnet.
+Initialize your `gaia client` utility to the testnet.
 
 ```
-gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:46657
+gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657
 ```
 
 You can now copy back your old keys into `.cosmos-gaia-cli/keys` or create new ones. Some of those accounts should have a lot of coins to give out.
 
 ```
-$ gaiacli keys new mytest
+$ gaia client keys new mytest
 Enter a passphrase:test123
 Repeat the passphrase:test123
 mytest		F75D0...2
 **Important** write this seed phrase in a safe place.
 It is the only way to recover your account if you ever forget your password.
 
-$ gaiacli keys list
+$ gaia client keys list
 All keys:
 mytest		F75D0...2
 ```
@@ -41,7 +41,7 @@ Fix the variables based on your system setup. Get your Google ReCaptcha credenti
   $recaptcha_key = "google_recaptcha_key";
 ```
 
-Run Apache as the user who installed `gaiacli`. In the `httpd.conf` file, change the following, and restart the server.
+Run Apache as the user who installed `gaia`. In the `httpd.conf` file, change the following, and restart the server.
 
 ```
 User myuser
@@ -53,4 +53,3 @@ Disable SELinux
 ```
 sudo setenforce 0
 ```
-

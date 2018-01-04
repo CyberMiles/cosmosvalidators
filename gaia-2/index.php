@@ -39,8 +39,8 @@
     // No error from above
     if (empty($errormsg)) {
       // The command is like this:
-      // echo "FROM_ACCT_PASS" | /home/user/go/bin/gaiacli tx send --to=TO_ACCT_KEY --name=FROM_ACCT_NAME --amount=10fermion
-      $cmd = 'echo "' . $from_pass . '" | ' . $go_path . '/gaiacli --home "' . $home_dir . '/.cosmos-gaia-cli" tx send --to=' . $to . ' --name=' . $from_acct . ' --amount=10fermion';
+      // echo "FROM_ACCT_PASS" | /home/user/go/bin/gaia client tx send --to=TO_ACCT_KEY --name=FROM_ACCT_NAME --amount=10fermion
+      $cmd = 'echo "' . $from_pass . '" | ' . $go_path . '/gaia client --home "' . $home_dir . '/.cosmos-gaia-cli" tx send --to=' . $to . ' --name=' . $from_acct . ' --amount=10fermion';
       $res = shell_exec( $cmd );
     }
   }
@@ -112,19 +112,17 @@ $ cd $GOPATH/src/github.com/cosmos/gaia
 $ make all
 </pre>
 
-    <p>Upon success, the <code>gaia</code> and <code>gaiacli</code> binaries will be installed in the <code>$GOPATH/bin</code> directory.</p>
+    <p>Upon success, the <code>gaia</code> binary will be installed in the <code>$GOPATH/bin</code> directory.</p>
 
 <pre>
 $ gaia version
-v0.3.0
-$ gaiacli version
-v0.3.0
+v0.4.0
 </pre>
 
-    <p>Next initialize your <code>gaiacli</code> utility to the <code>gaia-1</code> test network.</p>
+    <p>Next, initialize your <code>gaia client</code> utility to the <code>gaia-2</code> test network.</p>
 
 <pre>
-gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:46657
+gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657
 </pre>
 
     <h3><i>Troubleshooting</i></h3>
@@ -134,16 +132,16 @@ gaiacli init --chain-id=gaia-1 --node=tcp://gaia-1-node0.testnets.interblock.io:
     <ul>
       <li>Try running a <code>git pull</code> in the <code>$GOPATH/src/github.com/cosmos/gaia</code> directory.</li>
       <li>Remove the <code>.glide</code> folder in the <code>$HOME</code> directory.</li>
-      <li>Install <a href="https://glide.sh/">gilde</a> by hand.</li>
-      <li>Delete the <code>$HOME/.cosmos-gaia-cli</code> directory before init the <code>gaiacli</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-cli/keys</code> directory.</li>
+      <li>Install <a href="https://glide.sh/">glide</a> by hand.</li>
+      <li>Delete the <code>$HOME/.cosmos-gaia-cli</code> directory before initializing the <code>gaia client</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-cli/keys</code> directory.</li>
     </ul>
 
     <h2>Create your own wallet</h2>
 
-    <p>We use the <code>gaiacli</code> utility to create public / private key pairs for the wallet.</p>
+    <p>We use the <code>gaia client</code> utility to create public / private key pairs for the wallet.</p>
 
 <pre>
-$ ./gaiacli keys new MyAccount
+$ ./gaia client keys new MyAccount
 Enter a passphrase:MyPassword
 Repeat the passphrase:MyPassword
 MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
@@ -151,7 +149,7 @@ MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 
     <h2>Get some tokens</h2>
     <div class="box">
-      <p class="text-center">Currently this faucet only works with the gaia-1 testnet. Your balance will not update if you are running a different version of the testnet.</p>
+      <p class="text-center">Currently this faucet only works with the gaia-2 testnet. Your balance will not update if you are running a different version of the testnet.</p>
     </div>
     <p>Please use the form below to send some tokens to your newly created wallet (called fermions on the <code>gaia-1</code> test network).</p>
 
@@ -184,10 +182,10 @@ MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
   }
 ?>
 
-    <p>You should now be able to see them in your account via <code>gaiacli</code>.</p>
+    <p>You should now be able to see them in your account via the <code>gaia client</code>.</p>
 
 <pre>
-$ gaiacli query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
+$ gaia client query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 {
   "height": 1473,
   "data": {
@@ -231,7 +229,7 @@ I[11-07|18:07:44.857] Committed state                              module=state 
     </ul>
 
 <pre>
-$ gaiacli tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_OF_MY_NODE
+$ gaia client tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_OF_MY_NODE
 </pre>
 
     <p>Now, you should be able to see your node (indentified by its public key) in the network <a href="http://gaia-1-node0.testnets.interblock.io:46657/validators">validators</a> end point.</p>
