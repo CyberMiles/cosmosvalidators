@@ -208,7 +208,7 @@ $ gaia client query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 
 <pre>
 $ git clone https://github.com/tendermint/testnets $HOME/testnets
-$ GAIANET=$HOME/testnets/gaia-1/gaia
+$ GAIANET=$HOME/testnets/gaia-2/gaia
 $ cd $GAIANET
 </pre>
 
