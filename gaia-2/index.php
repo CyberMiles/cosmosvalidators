@@ -119,10 +119,10 @@ $ gaia version
 v0.5.0
 </pre>
 
-    <p>Next, initialize your <code>gaia client</code> utility to the <code>gaia-2</code> test network.</p>
+    <p>Next, initialize your <code>gaia client</code> utility to the <code>gaia-2</code> test network. Note: You can add the <code>--home=$HOME/.cosmos-gaia-2-cli</code> flag to all <code>gaia client</code> commands if you wish to use a data directory other than <code>$HOME/.cosmos-gaia-cli</code>.</p>
 
 <pre>
-gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657 --home=/home/user/.cosmos-gaia-2-cli
+gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657
 </pre>
 
     <h3><i>Troubleshooting</i></h3>
@@ -135,7 +135,7 @@ gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock
       <li>Remove the <code>.glide</code> folder in the <code>$HOME</code> directory.</li>
       <li>Remove the <code>GOPATH/src/github.com</code> folder.</li>
       <li>Install <a href="https://glide.sh/">glide</a> by hand.</li>
-      <li>Delete the <code>$HOME/.cosmos-gaia-2-cli</code> directory before initializing the <code>gaia client</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-2-cli/keys</code> directory.</li>
+      <li>Delete the <code>$HOME/.cosmos-gaia-cli</code> directory before initializing the <code>gaia client</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-cli/keys</code> directory.</li>
     </ul>
 
     <h2>Create your own wallet</h2>
