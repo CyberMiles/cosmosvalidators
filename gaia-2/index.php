@@ -40,7 +40,7 @@
     if (empty($errormsg)) {
       // The command is like this:
       // echo "FROM_ACCT_PASS" | /home/user/go/bin/gaia client tx send --to=TO_ACCT_KEY --name=FROM_ACCT_NAME --amount=10fermion
-      $cmd = 'echo "' . $from_pass . '" | ' . $go_path . '/gaia client --home "' . $home_dir . '/.cosmos-gaia-cli" tx send --to=' . $to . ' --name=' . $from_acct . ' --amount=10fermion';
+      $cmd = 'echo "' . $from_pass . '" | ' . $go_path . '/gaia client --home "' . $home_dir . '/.cosmos-gaia-2-cli" tx send --to=' . $to . ' --name=' . $from_acct . ' --amount=10fermion';
       $res = shell_exec( $cmd );
     }
   }
@@ -116,13 +116,13 @@ $ make all
 
 <pre>
 $ gaia version
-v0.4.0
+v0.5.0
 </pre>
 
     <p>Next, initialize your <code>gaia client</code> utility to the <code>gaia-2</code> test network.</p>
 
 <pre>
-gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657
+gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657 --home=/home/user/.cosmos-gaia-2-cli
 </pre>
 
     <h3><i>Troubleshooting</i></h3>
@@ -131,9 +131,11 @@ gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock
 
     <ul>
       <li>Try running a <code>git pull</code> in the <code>$GOPATH/src/github.com/cosmos/gaia</code> directory.</li>
+      <li>Try running a <code>git checkout develop</code> in the <code>$GOPATH/src/github.com/cosmos/gaia</code> directory.</li>
       <li>Remove the <code>.glide</code> folder in the <code>$HOME</code> directory.</li>
+      <li>Remove the <code>GOPATH/src/github.com</code> folder.</li>
       <li>Install <a href="https://glide.sh/">glide</a> by hand.</li>
-      <li>Delete the <code>$HOME/.cosmos-gaia-cli</code> directory before initializing the <code>gaia client</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-cli/keys</code> directory.</li>
+      <li>Delete the <code>$HOME/.cosmos-gaia-2-cli</code> directory before initializing the <code>gaia client</code>. You can also copy the keys files from your past setup into the <code>$HOME/.cosmos-gaia-2-cli/keys</code> directory.</li>
     </ul>
 
     <h2>Create your own wallet</h2>
