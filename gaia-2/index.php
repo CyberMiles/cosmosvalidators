@@ -153,7 +153,7 @@ MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
     <div class="box">
       <p class="text-center">Currently this faucet only works with the gaia-2 testnet. Your balance will not update if you are running a different version of the testnet.</p>
     </div>
-    <p>Please use the form below to send some tokens to your newly created wallet (called fermions on the <code>gaia-1</code> test network).</p>
+    <p>Please use the form below to send some tokens to your newly created wallet (called fermions on the <code>gaia</code> test network).</p>
 
     <form method=POST>
       <div class="form-group">
