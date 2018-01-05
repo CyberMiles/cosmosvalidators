@@ -98,6 +98,10 @@ $(document).ready(function(){
       <p class="lead text-center">Blockchain Status: <span id="status">Fetching data ...</span></p>
     </div>
 
+    <div class="box">
+      <p class="text-center">This faucet is for the outdated gaia-1 testnet. Please <a href="https://www.cosmosvalidators.com/">update to the latest</a> Cosmos Gaia testnet when possible.</p>
+    </div>
+    
     <h2>Prerequisites</h2>
 
     <p>You need to have <a href="https://golang.org/doc/install">GO</a>, <a href="https://gcc.gnu.org/install/">GCC</a>, and <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed on your machine.</p>
