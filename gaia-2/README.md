@@ -2,15 +2,15 @@
 
 ## Set up Gaia CLI for gaia-2
 
-First backup your `.cosmos-gaia-cli` directory if there is one. You want to keep your `.cosmos-gaia-cli/keys` where your existing account keys are stored.
+First backup your `.cosmos-gaia-2-cli` directory if there is one. You want to keep your `.cosmos-gaia-2-cli/keys` where your existing account keys are stored.
 
 Initialize your `gaia client` utility to the testnet.
 
 ```
-gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657
+gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock.io:46657 --home=/home/user/.cosmos-gaia-2-cli
 ```
 
-You can now copy back your old keys into `.cosmos-gaia-cli/keys` or create new ones. Some of those accounts should have a lot of coins to give out.
+You can now copy back your old keys into `.cosmos-gaia-2-cli/keys` or create new ones. Some of those accounts should have a lot of coins to give out.
 
 ```
 $ gaia client keys new mytest
