@@ -242,14 +242,14 @@ $ gaia client tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_O
     <p>Once you understand how the process works, you can use the following community maintained scripts to automate the deployment of your testnet node so that you do not have to type in everything every time!</p>
 
     <ul>
-      <li>User <a href="https://github.com/mdyring">mdyring</a> created a script to <a href="https://gist.github.com/mdyring/47545b1e03b6a4eb3b29dfa599e50151">setup a gaia-1 full node on EC2</a>. You can pass in <code>user-data</code> for automation.</li>
+      <li>User <a href="https://github.com/mdyring">mdyring</a> created a script to <a href="https://github.com/block-finance/cosmos-scripts">setup a gaia full node on AWS EC2</a>. You can pass in <code>user-data</code> for automation.</li>
     </ul>
 
   </div>
 
   <div class="footer">
     <p class="lead text-center">Happy validating!</p>
-    <p class="text-center author">This page is built by your fellow validator <a href="http://michaelyuan.com/">Michael Yuan</a> from <a href="https://cm.5miles.com/">CyberMiles</a>.</p>
+    <p class="text-center author">This page is built by your fellow validator <a href="http://michaelyuan.com/">Michael Yuan</a> from <a href="http://www.cybermiles.io/">CyberMiles</a>.</p>
   </div>
 
   </body>
