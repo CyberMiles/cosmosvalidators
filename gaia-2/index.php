@@ -144,7 +144,7 @@ gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock
     <p>We use the <code>gaia client</code> utility to create public / private key pairs for the wallet.</p>
 
 <pre>
-$ ./gaia client keys new MyAccount
+$ gaia client keys new MyAccount
 Enter a passphrase:MyPassword
 Repeat the passphrase:MyPassword
 MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
@@ -205,7 +205,7 @@ $ gaia client query account ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 
     <h2>Run your own node</h2>
 
-    <p>Check out the testnets configurations from github to your local directory, and point the <code>$GAIANET</code> environment variable to the <code>gaia-1</code> network configuration files.</p>
+    <p>Check out the testnets configurations from github to your local directory, and point the <code>$GAIANET</code> environment variable to the <code>gaia-2</code> network configuration files.</p>
 
 <pre>
 $ git clone https://github.com/tendermint/testnets $HOME/testnets
@@ -213,10 +213,10 @@ $ GAIANET=$HOME/testnets/gaia-2/gaia
 $ cd $GAIANET
 </pre>
 
-    <p>Now you can run your own node. It will take some time to sync up. You can check the current status (including the latest block height) of the <code>gaia-1</code> network <a href="http://gaia-1-node0.testnets.interblock.io:46657/status">here</a>.</p>
+    <p>Now you can run your own node. It will take some time to sync up. You can check the current status (including the latest block height) of the <code>gaia-2</code> network <a href="http://gaia-2-node0.testnets.interblock.io:46657/status">here</a>.</p>
 
 <pre>
-$ gaia start --home=$GAIANET
+$ gaia node start --home=$GAIANET
 ... ...
 I[11-07|18:07:44.857] Committed state                              module=state height=1458 txs=0 hash=951D888E60F268E05AA7B87C0F45233479F37D25
 ... ...
