@@ -144,7 +144,7 @@ gaia client init --chain-id=gaia-2 --node=tcp://gaia-2-node0.testnets.interblock
     <p>We use the <code>gaia client</code> utility to create public / private key pairs for the wallet.</p>
 
 <pre>
-$ ./gaia client keys new MyAccount
+$ gaia client keys new MyAccount
 Enter a passphrase:MyPassword
 Repeat the passphrase:MyPassword
 MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
