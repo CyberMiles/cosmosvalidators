@@ -91,6 +91,7 @@ $(document).ready(function(){
       <div class="links">
         <a href="https://cosmos.network/validators/faq" target="_blank">FAQ</a>
         <a href="https://github.com/cosmos/gaia" target="_blank">GitHub</a>
+        <a href="http://explorer.cosmosvalidators.com/" target="_blank">Explorer</a>
         <a href="gaia-1/index.php" target="_blank">Gaia-1</a>
       </div>
     </nav>
