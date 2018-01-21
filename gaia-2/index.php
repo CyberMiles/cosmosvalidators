@@ -178,6 +178,7 @@ MyAccount		ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789
 <?php
   if (!empty($res)) {
 ?>
+<p>You can checkout the transaction from the <a href="http://explorer.cosmosvalidators.com/#/account/<?= $to ?>">Gaia blockchain explorer</a>.</p>
 <p><b>Testnet response follows.</b> If you see <code>deliver_tx</code> <code>"code": 0</code>, that indicates success.</p>
 <pre>
 <?= $res ?>
@@ -225,7 +226,7 @@ I[11-07|18:07:44.857] Committed state                              module=state 
 
     <h2>Bond your node as a validator</h2>
 
-    <p>To bond your node as a validator of the <code>gaia-1</code> network, you need two pieces of information.</p>
+    <p>To bond your node as a validator of the <code>gaia-2</code> network, you need two pieces of information.</p>
 
     <ul>
       <li>The wallet that provides the tokens to bond. We already have it when we setup the wallet. It is <code>MyAccount</code> in our case.</li>
@@ -236,7 +237,7 @@ I[11-07|18:07:44.857] Committed state                              module=state 
 $ gaia client tx bond --amount 10fermion --name MyAccount --pubkey THE_PUB_KEY_OF_MY_NODE
 </pre>
 
-    <p>Now, you should be able to see your node (indentified by its public key) in the network <a href="http://gaia-1-node0.testnets.interblock.io:46657/validators">validators</a> end point.</p>
+    <p>Now, you should be able to see your node (indentified by its public key) in the network <a href="http://gaia-2-node0.testnets.interblock.io:46657/validators">validators</a> end point.</p>
 
     <h2>Automated scripts</h2>
 
